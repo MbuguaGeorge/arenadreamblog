@@ -102,3 +102,5 @@ class Gallery(models.Model):
     class Meta:
         ordering=['-timestamp']
         verbose_name_plural="Gallery"
+
+
