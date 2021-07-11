@@ -3,10 +3,10 @@ autopep8==1.4.3
 certifi==2019.3.9
 chardet==3.0.4
 defusedxml==0.5.0
-Django==2.2.13
+Django==3.2
 django-allauth
 django-crispy-forms
-django-tinymce4-lite==1.7.4
+django-tinymce4-lite
 gunicorn==19.9.0
 idna==2.8
 isort==4.3.4
@@ -22,9 +22,9 @@ pylint==2.2.2
 python3-openid==3.1.0
 pytz==2018.9
 requests==2.21.0
-requests-oauthlib==1.2.0
+requests-oauthlib
 six
-sqlparse==0.3.0
+sqlparse
 typed-ast
-urllib3==1.24.2
-wrapt==1.11.0
+urllib3
+wrapt
