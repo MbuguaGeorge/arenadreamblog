@@ -62,11 +62,12 @@ class Subscribe_newslater_description(models.Model):
         verbose_name_plural='Subscribe Newslate description'
 
 
-class contacts(models.Model):
+class Contacts(models.Model):
      name=models.CharField(max_length=100)
      rank=models.CharField(max_length=100,default="Instructor")
      email=models.EmailField(max_length=100)
      phone=models.CharField(max_length=12)
+     dateadded=models.DateTimeField(auto_now_add=True,blank=True,null=True)
 
      def __str__(self):
         return self.name

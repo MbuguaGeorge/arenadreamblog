@@ -9,6 +9,10 @@ def gallery(request):
     galimgs=Gallery.objects.order_by('-timestamp')[:8]
     return {'galimgs':galimgs}
 
+def contacts(request):
+    c=Contacts.objects.order_by("-dateadded")[:6]
+    return {'contacts':c}
+
 def customname(request):
     customname=Customblogname.objects.all()
     return {'custom':customname}

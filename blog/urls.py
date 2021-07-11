@@ -3,27 +3,16 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from posts.views import (
-    index,
-    search,
-    post_list,
-    post_detail,
-    post_create,
-    post_update,
-    post_delete,
-    IndexView,
-    PostListView,
-    PostDetailView,
-    PostCreateView,
-    PostUpdateView,
-    PostDeleteView
-)
+from posts.views import *
 from marketing.views import email_list_signup
+from BlogSettings.views import contact
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     #path('', index,name='index'),
     path('', IndexView.as_view(), name='home'),
+    path('profile/', profile, name='profile'),
+    path('contact/', contact, name='contact'),
     #path('blog/', post_list, name='post-list'),
     path('blog/', PostListView.as_view(), name='post-list'),
     path('search/', search, name='search'),
