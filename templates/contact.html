@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<main>
+<section class="text-center mb-2 box" style="margin-left:10%;margin-right:21%;">
+                <!--Grid row-->
+                <div class="row wow fadeIn">
+                    {% for c in contacts %}
+                    <div class="column is-3 product-list-item">
+                        <div class="box contact details">
+                            <h1>Contacts</h1>
+                            <div class="logo">
+                                <figure class="image is-4by3 mb-4">
+                                    <img src="{{request.user.profile.image.url}}" alt="user" class="profile-img" width="10px"
+                                         height="10px">
+                                </figure>
+                                <h5 class="text-white">Name:{{c.name}}</h5>
+                                <h4 style="color:pink;">Position:{{c.rank}}</h4>
+                                <p>Phone: {{c.phone}}</p>
+                                <p>Email: <a href="mailto:{{d.email}}">{{c.email}}</a></p>
+                            </div>
+                            {% endfor %}
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+                <!--Grid row-->
+
+            </section>
+            <!--Section: Products v.3-->
+        </main>
+
+{% endblock content %}
+
+
+

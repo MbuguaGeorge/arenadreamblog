@@ -9,6 +9,8 @@ from .models import Post, Author, PostView
 from marketing.forms import EmailSignupForm
 from marketing.models import Signup
 from .models import *
+from .forms import *
+from django.contrib.auth.decorators import login_required
 
 form = EmailSignupForm()
 
@@ -82,7 +84,6 @@ class IndexView(View):
 def index(request):
     featured = Post.objects.filter(featured=True)
     latest = Post.objects.order_by('-timestamp')[0:3]
-    custom=CustomizeSettings.objects.all()
 
     if request.method == "POST":
         email = request.POST["email"]
@@ -94,7 +95,6 @@ def index(request):
         'object_list': featured,
         'latest': latest,
         'form': form,
-        'custom':custom,
     }
     return render(request, 'index.html', context)
 
@@ -290,3 +290,28 @@ def post_delete(request, id):
     post = get_object_or_404(Post, id=id)
     post.delete()
     return redirect(reverse("post-list"))
+
+
+@login_required
+def profile(request):
+    if request.method == 'POST':
+
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, 'Your account has been updated!')
+            return redirect('profile')
+    else:
+
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+
+    context = {
+        'u_form': u_form,
+        'p_form': p_form
+    }
+
+    return render(request,'profile.html', context)

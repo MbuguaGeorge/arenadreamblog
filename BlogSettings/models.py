@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 from tinymce import HTMLField
+from django.contrib.auth.models import User
 
 
 class Customblogname(models.Model):
@@ -62,14 +63,23 @@ class Subscribe_newslater_description(models.Model):
         verbose_name_plural='Subscribe Newslate description'
 
 
-class contacts(models.Model):
-     name=models.CharField(max_length=100)
-     rank=models.CharField(max_length=100,default="Instructor")
-     email=models.EmailField(max_length=100)
+class Ranks(models.Model):
+    title=models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name_plural = 'Ranks'
+
+class Contacts(models.Model):
+     user=models.OneToOneField(User,on_delete=models.CASCADE,blank=True,null=True)
+     rank=models.ForeignKey(Ranks,on_delete=models.CASCADE,blank=True,null=True)
      phone=models.CharField(max_length=12)
+     dateadded=models.DateTimeField(auto_now_add=True,blank=True,null=True)
 
      def __str__(self):
-        return self.name
+        return f'{self.rank} ({self.phone})'
 
      class Meta:
         verbose_name_plural='Set Contacts'
@@ -84,7 +94,7 @@ class Helpdesk(models.Model):
     youtube=models.URLField()
     instagram=models.URLField()
     other=models.URLField(default="enter any aditional social media url")
-    rights_year=models.DateTimeField(auto_now_add=True,blank=True,null=True)
+    rights_year=models.DateTimeField(auto_now_add=True)
 
     class Meta:
         verbose_name_plural="Help desk setup"

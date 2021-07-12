@@ -52,6 +52,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'blog.urls'
+LOGIN_REDIRECT_URL='profile'
 
 TEMPLATES = [
     {
@@ -73,6 +74,8 @@ TEMPLATES = [
                 'posts.context_processors.helpdesk',
                 'posts.context_processors.postfooter',
                 'posts.context_processors.gallery',
+                'posts.context_processors.contacts',
+
             ],
         },
     },
