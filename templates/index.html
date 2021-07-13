@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title%} home|{% endblock %}
 
 {% block content %}
 
@@ -73,9 +74,9 @@
       </div>
     </section>
     <!-- Latest Posts -->
-    <section class="latest-posts"> 
+    <section class="latest-posts">
       <div class="container">
-        <header> 
+        <header>
           <h2>Latest from the blog</h2>
           <p class="text-big">{{siterandom_context|first}}.</p>
         </header>
@@ -101,7 +102,7 @@
       </div>
     </section>
     <!-- Newsletter Section-->
-    <section class="newsletter no-padding-top">    
+    <section class="newsletter no-padding-top">
       <div class="container">
         <div class="row">
           <div class="col-md-6">
@@ -124,7 +125,7 @@
     </section>
 
     <!-- Gallery Section-->
-    <section class="gallery no-padding">    
+    <section class="gallery no-padding">
       <div class="row">
         {% for im in galimgs %}
         <div class="mix col-lg-3 col-md-3 col-sm-6">

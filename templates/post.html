@@ -11,7 +11,7 @@
     <div class="container">
       <div class="row">
         <!-- Latest Posts -->
-        <main class="post blog-post col-lg-8"> 
+        <main class="post blog-post col-lg-8">
           <div class="container">
             <div class="post-single">
               <div class="post-thumbnail"><img src="{{ post.thumbnail.url }}" alt="..." class="img-fluid"></div>
@@ -31,7 +31,7 @@
                 <div class="post-footer d-flex align-items-center flex-column flex-sm-row"><a href="#" class="author d-flex align-items-center flex-wrap">
                     <div class="avatar"><img src="{{ post.author.profile_picture.url }}" alt="..." class="img-fluid"></div>
                     <div class="title"><span>{{ post.author.user.username }}</span></div></a>
-                  <div class="d-flex align-items-center flex-wrap">       
+                  <div class="d-flex align-items-center flex-wrap">
                     <div class="date"><i class="icon-clock"></i> {{ post.timestamp|timesince }} ago</div>
                     <div class="views"><i class="icon-eye"></i> {{ post.view_count }}</div>
                     <div class="comments meta-last"><i class="icon-comment"></i>{{ post.comment_count }}</div>
@@ -106,7 +106,7 @@
             </div>
           </div>
         </main>
-        {% include 'sidebar.html' with most_recent=most_recent category_count=category_count %}        
+        {% include 'sidebar.html' with most_recent=most_recent category_count=category_count %}
       </div>
     </div>
 {% endblock content %}
