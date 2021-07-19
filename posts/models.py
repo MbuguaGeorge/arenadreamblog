@@ -1,11 +1,9 @@
-from tinymce import HTMLField
 from django.db import models
+from tinymce.models import HTMLField
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.db.models.signals import post_save
 from django.dispatch.dispatcher import receiver
-
-
 
 class PostView(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -45,7 +43,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     overview = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
-    content = HTMLField()
+    content = HTMLField('content')
     # comment_count = models.IntegerField(default = 0)
     # view_count = models.IntegerField(default = 0)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
@@ -104,3 +102,10 @@ class Profile(models.Model):
         if created:
             Profile.objects.create(user=instance)
         instance.profile.save()
+
+class Follow(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='following')
+    target = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='follower')
+
+    def __str__(self):
+        return str(self.target)

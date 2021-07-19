@@ -27,7 +27,11 @@ body {
 strong {
   font-weight: 700;
 }
-
+.georgeey-follow:hover{
+  background-color: #1c669c;
+  color: white;
+  border: 1px #1c669c solid;
+}
 a,
 i,
 span {

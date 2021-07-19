@@ -33,6 +33,16 @@
                     <div class="date"><i class="icon-clock"></i>{{ post.timestamp|timesince }} ago</div>
                     <div class="comments meta-last"><i class="icon-comment"></i>{{ post.comment_count }}</div>
                   </footer>
+                      <a href="{% url 'follow' %}"></a>
+                        <button style="
+                        background-color:transparent;
+                        border: 1px black solid;
+                        outline: none;
+                        border-radius: 50px;
+                        font-family: 'Times New Roman', Times, serif;
+                        padding: 2px 15px;
+                        " class="georgeey-follow" >Follow</button>
+                      </a>
                 </div>
               </div>
               {% endfor %}

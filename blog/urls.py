@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 from posts.views import *
+from posts import views
 from marketing.views import email_list_signup
 from BlogSettings.views import contact
 
@@ -26,7 +27,8 @@ urlpatterns = [
     # path('post/<id>/delete/', post_delete, name='post-delete'),
     path('post/<pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
     path('tinymce/', include('tinymce.urls')),
-    path('accounts/', include('allauth.urls'))
+    path('accounts/', include('allauth.urls')),
+    path('follow/', views.following, name='follow')
 ]
 
 if settings.DEBUG:

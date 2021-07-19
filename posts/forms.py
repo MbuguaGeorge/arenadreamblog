@@ -1,5 +1,6 @@
 from django import forms
-from tinymce import TinyMCE
+import tinymce
+from tinymce.widgets import TinyMCE
 from .models import Post, Comment
 from django.contrib.auth.models import User
 from .models import *
@@ -22,7 +23,7 @@ class PostForm(forms.ModelForm):
 
 class CommentForm(forms.ModelForm):
 
-    content = forms.CharField(widget=forms.textarea(attrs={
+    content = forms.CharField(widget=forms.Textarea(attrs={
         'class': 'form-control',
         'placeholder': 'Type your comment',
         'id': 'usercomment',
