@@ -14,8 +14,11 @@ class PostView(models.Model):
 
 
 class Author(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_picture = models.ImageField()
+    user = models.OneToOneField(User, on_delete=models.CASCADE,related_name="authors")
+    following = models.ManyToManyField(
+        "self", blank=True, related_name="followers", symmetrical=False
+    )
+    profile_picture=models.ImageField(upload_to="author_profile/",blank=True,null=True)
 
     def __str__(self):
         return self.user.username
@@ -102,10 +105,3 @@ class Profile(models.Model):
         if created:
             Profile.objects.create(user=instance)
         instance.profile.save()
-
-class Follow(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='following')
-    target = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='follower')
-
-    def __str__(self):
-        return str(self.target)

@@ -24,11 +24,7 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-.georgeey-follow:hover{
-  background-color: #1c669c;
-  color: white;
-  border: 1px #1c669c solid;
-}
+
 [class^="icon-"]:before,
 [class*=" icon-"]:before {
   font-family: "blog" !important;

@@ -5,10 +5,37 @@
 {% block content %}
     <div class="content-section box" style="margin-left:10%;margin-right:10%;">
         <div class="media">
-            <img class="profile-img rounded-circle account-img " src="{{ user.profile.image.url }}" style="height:20%;width:20%">
+            <img class="profile-img rounded-circle account-img " src="{{ user.profile.image.url }}" style="height:20%;width:20%;border-radius: 50%;">
             <div class="media-body">
-                <h2 class="account-heading">{{ user.username }}</h2>
-                <p class="text-secondary">{{ user.email }}</p>
+                <div style="margin-left: 70px;" >
+                    <h2 class="account-heading">{{ user.username }}</h2>
+                    <p class="text-secondary">{{ user.email }}</p>
+                </div>
+                <div>
+                    <ul style="list-style: none;display: flex;">
+                        <li style="border-right: 1px solid #ddd; height: 25px; top: 20px; padding-right: 10px;" >
+                            <ol style="text-align: center;">
+                                <h3 style="font-size: 1rem;" >1</h3>
+                                <h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 1rem;
+                                color: #ddd;font-weight: 200;" >Following</h3>
+                            </ol>
+                        </li>
+                        <li style="border-right: 1px solid #ddd;padding-right: 10px; height: 25px; vertical-align: middle;">
+                            <ol style="text-align: center; padding-left: 10px;">
+                                <h3 style="font-size: 1rem;" >0</h3>
+                                <h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 1rem;
+                                color: #ddd;font-weight: 200;">Followers</h3>
+                            </ol>
+                        </li>
+                        <li>
+                            <ol style="text-align: center; padding-left: 10px;">
+                                <h3 style="font-size: 1rem;" >0</h3>
+                                <h3 style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 1rem;
+                                color: #ddd;font-weight: 200;">Like</h3>
+                            </ol>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
         <form method="POST" enctype="multipart/form-data">

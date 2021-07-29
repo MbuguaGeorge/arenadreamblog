@@ -24,11 +24,7 @@ github.com style (c) Vasily Polovnyov <vast@whiteants.net>
   color: #333;
   font-weight: bold;
 }
-.georgeey-follow:hover{
-  background-color: #1c669c;
-  color: white;
-  border: 1px #1c669c solid;
-}
+
 .hljs-number,
 .hljs-literal,
 .hljs-variable,

@@ -28,7 +28,7 @@ urlpatterns = [
     path('post/<pk>/delete/', PostDeleteView.as_view(), name='post-delete'),
     path('tinymce/', include('tinymce.urls')),
     path('accounts/', include('allauth.urls')),
-    path('follow/', views.following, name='follow')
+    path('followToggle/<int:author_id>/',followToggle, name='followToggle')
 ]
 
 if settings.DEBUG:

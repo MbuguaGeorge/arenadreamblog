@@ -23,11 +23,7 @@ Bootstrap Temple Blog Template
 body {
   overflow-x: hidden;
 }
-.georgeey-follow:hover{
-  background-color: #1c669c;
-  color: white;
-  border: 1px #1c669c solid;
-}
+
 strong {
   font-weight: 700;
 }

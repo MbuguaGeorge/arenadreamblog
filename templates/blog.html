@@ -32,17 +32,14 @@
                     </a>
                     <div class="date"><i class="icon-clock"></i>{{ post.timestamp|timesince }} ago</div>
                     <div class="comments meta-last"><i class="icon-comment"></i>{{ post.comment_count }}</div>
+                    {% if request.user.is_authenticated %}
+                    {% if request.user in post.author.following.all %}
+                        <a href="{% url 'followToggle' author_id=post.author.user.id %}" class="btn btn-primary"><button>following</button></a>
+                      {% else %}
+                        <a  href="{% url 'followToggle' author_id=post.author.user.id %}" class="btn btn-default"><button>follow</button></a>
+                    {% endif %}
+                    {% endif %}
                   </footer>
-                      <a href="{% url 'follow' %}"></a>
-                        <button style="
-                        background-color:transparent;
-                        border: 1px black solid;
-                        outline: none;
-                        border-radius: 50px;
-                        font-family: 'Times New Roman', Times, serif;
-                        padding: 2px 15px;
-                        " class="georgeey-follow" >Follow</button>
-                      </a>
                 </div>
               </div>
               {% endfor %}

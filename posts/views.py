@@ -1,13 +1,11 @@
 from django.db.models import Count, Q
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.views.generic import View, ListView, DetailView, CreateView, UpdateView, DeleteView
-from django.http import HttpResponse
 from .forms import CommentForm, PostForm
-from .models import Post, Author, PostView, Follow
+from .models import Post, Author, PostView
 from marketing.forms import EmailSignupForm
 from marketing.models import Signup
 from .models import *
@@ -318,25 +316,15 @@ def profile(request):
 
     return render(request,'profile.html', context)
 
-def follow_user(request, User):
-    user = User.objects.get(User)
-    current_user = User.objects.get(username=request.User.profile)
+@login_required
+def followToggle(request, author_id):
+    authorObj =Author.objects.get(user__id=author_id)
+    currentUserObj = User.objects.get(username=request.user.username)
+    following = authorObj.following.all()
 
-    follower = Follow.objects.all()
-
-    if User != current_user.username:
-        if current_user in follower:
-            user.follower.remove(current_user.id)
+    if author_id != currentUserObj.id:
+        if currentUserObj in following:
+            authorObj.following.remove(currentUserObj.id)
         else:
-            user.follower.add(current_user.id)
-
-    return HttpResponse('success')
-
-def following(request, author):
-    user = request.user
-    user_1 = user.pk
-    user_2 = User.objects.get(pk=user_1)
-    follow_user = Follow.objects.filter(target=author).first()
-
-    follow_user.target.add(user_2)
-    return HttpResponse(follow_user)
+            authorObj.following.add(currentUserObj.id)
+            messages.info(request,"Follow status changed")
