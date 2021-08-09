@@ -1,15 +1,13 @@
-# Django Twitter Clone by Redian Marku
+# Django Twitter Clone For Arena Fitness Blog by TDBSoft
 
-Fully functional Django App that looks ecxatly like real Twitter.
+Fully functional Django App that looks ecxatly like real Twitter with some better improvemnts.
 
-Demo Image:
-![](TwitterDemo.png)
 
 ## Setup
 
-1. Git Clone the project with: ```git clone https://github.com/redianmarku/Django-Twitter-Clone.git```.
+1. Git Clone the project with: ```git clone https://github.com/titusowuor30/arenadreamblog.git```.
 
-2. Move to the base directory: ```cd Django-Twitter-Clone```
+2. Move to the base directory: ```cd arenadreamblog```
 
 3. Create a new python enveronment with: ```python -m venv env```.
 
@@ -46,5 +44,3 @@ SOFTWARE.
 
 Please Subscribe my YouTube Channel: <a href="https://www.youtube.com/channel/UCO5WiowKFnEw17AOk008WOQ" target="_blank">Top Notch Programmer</a>.
 
-# Donate
-[![paypal](https://mk0mightycausebxdggx.kinstacdn.com/wp-content/uploads/2019/06/paypal-donate-button-high-quality-png.png)](https://www.paypal.me/redidev)
