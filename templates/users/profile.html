@@ -1,0 +1,27 @@
+{% extends "posts/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-12 my-4">
+                <div class="card-header">
+                    <p class="m-0" style="color: #5f5f5f;">Edit Profile</p>
+                </div>
+                <div class="card-body offset-md-2">
+                    <form class="col-6 no-padding" method="POST" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            {{ uform | crispy }}
+                            {{ pform | crispy }}
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-outline-primary" type="submit">Update</button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>
+        {% endblock content %}
+
